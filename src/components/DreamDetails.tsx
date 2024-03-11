@@ -1,17 +1,13 @@
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom';
+import React from 'react'
 
-interface Dream {
-  id: number;
-  title: string;
-  content: string;
-  timestamp: string;
-  likes: number;
-  // ... other dream properties
-}
+interface DreamDetailsProps {
+    title: string
+    likes: number
+    content:string
+    }
 
 // interface for the reactions
-type Reactions ={
+interface Reactions {
   R1: string
   R2: string
   R3: string
@@ -29,22 +25,7 @@ type Reactions ={
 // }
 
 
-export default function DreamDetails() {
-
-  const { dreamId } = useParams(); // Get dream ID from URL params
-  console.log(dreamId)
-  const [dream, setDream] = useState<Dream | null>(null);
-
-  React.useEffect(() => {
-    fetch(`/api/dreams/${dreamId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-      setDream(data)
-  });
-  }, [dreamId]);
-
-
+export default function DreamDetails({title, likes,content}: DreamDetailsProps, {R1="Wow",R2="Amazing",R3="Sad",R4="Explorative",R5="" }:Reactions) {
   return (
     <div className='h-screen w-screen'>
       <div id='main' className="bg-gray-700 w-full h-auto text-white m-1 rounded-md">

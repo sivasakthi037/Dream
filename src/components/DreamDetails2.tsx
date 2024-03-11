@@ -13,9 +13,8 @@ interface Dream {
 export default function DreamDetails2() {
 
   const { dreamId } = useParams(); // Get dream ID from URL params
-  console.log(dreamId)
-  const [dream, setDream] = useState<Dream>();
-
+  const [dream, setDream] = useState<Dream[]>([]);
+  const val: any[]=dream;
   
  // Fetch dream details based on ID (replace with your actual API call)
  React.useEffect(() => {
@@ -28,13 +27,13 @@ export default function DreamDetails2() {
 }, [dreamId]);
 
   return (
+   
     <div>
-      
         <DreamDetails
-          key={dream}
-          content={dream.content}
-          likes={Number(dream.likes)} 
-          title={dream.title}      
+          key={val[0]}
+          content={val[2]}
+          likes={Number(dream[4])} 
+          title={val[1]}      
         />
     </div>
   )
