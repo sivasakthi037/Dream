@@ -1,0 +1,108 @@
+ useEffect(() => {
+ {
+      fetch('api/dreams') // Replace with your API endpoint
+      .then((response) =>response.json())
+      .then((data) =>{
+      console.log(data.dreams.results);
+      setDreams(data.dreams.results)});
+    };
+  }, []);
+
+
+// for the particular id
+ // Fetch dream details based on ID (replace with your actual API call)
+  React.useEffect(() => {
+    fetch(`/api/dreams/${dreamId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.dream.results[0])
+      setDream(data.dream.results[0])
+  });
+  }, [dreamId]);
+
+// for single entry
+
+{dream && dream.map((item) => (
+      <DreamDetails
+        key={item.id}
+        Title="ksdnfjs"
+        date={item.content_id.toString()}
+        likes={Number(item.topic_id)}
+      />
+    ))}
+    </div>
+
+
+// for the loading state
+
+{dream ? (
+        <div>
+          <h2>{dream.title}</h2>
+          <p>{dream.content}</p>
+          {/* <p>Likes: {dream.likes}</p>
+          <p>Timestamp: {dream.timestamp}</p> */}
+        </div>
+      ) : (
+        <p>Loading dream details...</p>
+      )}
+
+
+// intereface for single
+
+interface Dream {
+  id: number;
+  Title: string;
+  content: string;
+  timestamp: string;
+  likes: number;
+  // ... other dream properties
+}
+
+
+const { dreamId } = useParams(); // Get dream ID from URL params
+  console.log(dreamId)
+  const [dream, setDream] = useState<Dream | null>(null);
+
+    <div className="">
+      <h2>Dream List</h2>
+      <div className='bg-gray-300'>
+    {/* //print the dreams from the API in text format */}
+        {dreams.map((dream) => (
+          <div key={dream.content_id}>
+            <h3>{dream.title}</h3>
+            <p>{dream.content}</p>
+            <p>{dream.topic_id}</p>
+            <p>______________________________</p>
+          </div>
+        ))}
+
+      </div>
+    </div>
+  );
+};
+
+
+//card
+
+
+ {dreams.map((dream) => (
+          <DreamCard
+            key={dream.id}
+            title={dream.title}
+            date={dream.content_id.toString()}
+            likes={Number(dream.topic_id)}
+          />
+        ))}
+
+
+        // Interface for dream data (assuming you have a structure for dream objects)
+interface Dream {
+  topic_id: string;
+  content_id: number;
+  id: number;
+  title: string;
+  content: string;
+  timestamp: string;
+  likes: number;
+  // ... other dream properties
+}
