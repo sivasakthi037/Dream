@@ -46,11 +46,11 @@ export default function DreamList() {
           <DreamCard
             key={dream.id}
             title={dream.title}
-            date={dream.timestamp.toString()}
+            date={(dream.timestamp)}
             likes={Number(dream.likes)}
           />
         </Link>
-        ))}
+      ))}
     </div>
   )
 }
