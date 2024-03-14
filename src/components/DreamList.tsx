@@ -34,7 +34,7 @@ export default function DreamList() {
   // Fetch dreams from the API
   const [dreams, setDreams] = React.useState<Dream[]>([]);
   React.useEffect(() => {
-    fetch('/api/dreams')
+    fetch('https://dreams.sivasakthi-n2022cse.workers.dev/dreams')
       .then((res) => res.json())
       .then((data) => setDreams(data));
   }, []);

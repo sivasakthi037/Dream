@@ -41,17 +41,17 @@ export default function DreamDetails({title, likes,content}: DreamDetailsProps, 
 
     // Call backend API to increment like count
     // Replace `YOUR_API_ENDPOINT` with your actual API endpoint
-    fetch(`/api/dreams/${dreamId}/like`, {
+    fetch(`https://dreams.sivasakthi-n2022cse.workers.dev/dreams/${dreamId}/like`, {
       method: 'PUT',
       headers: {
       'Content-Type': 'application/json'
       }
     })
       .then(response => response.json())
-      .then(data => {
+      .then(_data => {
       // Handle API response if needed
       })
-      .catch(error => {
+      .catch(_error => {
       // Handle error if needed
       });
     };

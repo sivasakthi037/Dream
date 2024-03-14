@@ -1,7 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import DreamDetails from './components/DreamDetails2'
-import DreamList from './components/DreamList'
 import DreamDetails2 from './components/DreamDetails2'
 import DreamStats from './components/DreamStats'
 import AddDreamForm from './components/AddDreamForm'

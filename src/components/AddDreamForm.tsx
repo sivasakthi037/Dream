@@ -5,7 +5,7 @@ export default function AddDreamForm() {
     const [content, setContent] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [error, setError] = useState('');
-    const [date, setDate] = React.useState<Date>()
+    const [] = React.useState<Date>()
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -22,7 +22,7 @@ export default function AddDreamForm() {
         };
 
         try {
-            const response = await fetch('/api/dreams', {
+            const response = await fetch('https://dreams.sivasakthi-n2022cse.workers.dev/dreams', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import DreamList from './DreamList';
 import DreamHeader from './DreamHeader';
 import FilterBar from './FilterBar';

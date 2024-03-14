@@ -1,4 +1,4 @@
-import React, { Key, useState } from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom';
 import DreamDetails from './DreamDetails';
 interface Dream {
@@ -17,7 +17,7 @@ export default function DreamDetails2() {
   
  // Fetch dream details based on ID (replace with your actual API call)
  React.useEffect(() => {
-  fetch(`/api/dreams/${dreamId}`)
+  fetch(`https://dreams.sivasakthi-n2022cse.workers.dev/dreams/${dreamId}`)
     .then((res) => res.json())
     .then((data) => {
     console.log(data[0]);
