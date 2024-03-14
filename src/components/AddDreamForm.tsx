@@ -59,7 +59,7 @@ export default function AddDreamForm() {
                         <input
                             id="title"
                             type="text"
-                            className="border bg-transparent w-80 rounded-sm"
+                            className="border bg-transparent w-80 rounded-sm pl-2"
                             value={title}
                             onChange={(event) => setTitle(event.target.value)}
                         />
