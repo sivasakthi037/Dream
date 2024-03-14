@@ -33,6 +33,10 @@ export default function AddDreamForm() {
             if (response.ok) {
                 // Handle success
                 console.log('Dream added successfully');
+                setTitle('');
+                setContent('');
+                setSelectedCategory('');
+                alert('Dream launched successfully . . .🔬✨');
             } else {
                 // Handle error
                 console.error('Failed to add dream');
