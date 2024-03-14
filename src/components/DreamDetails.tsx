@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 interface DreamDetailsProps {
     title: string
@@ -25,7 +26,37 @@ interface Reactions {
 // }
 
 
-export default function DreamDetails({title, likes,content}: DreamDetailsProps, {R1="Wow",R2="Amazing",R3="Sad",R4="Explorative" }:Reactions) {
+export default function DreamDetails({title, likes,content}: DreamDetailsProps, {R1="Sad 🥲",R2="Haha 😂",R3="Angry 😡",R4="Satisfied 😊" }:Reactions) {
+
+  const [likeCount, setLikeCount] = React.useState(likes);
+  const [isliked, setIsLiked] = React.useState(false);
+  // get the dream id from the url
+  const { dreamId } = useParams();
+
+  const handleLike = () => {
+    // Increment like count locally
+    if (isliked) return;
+    setLikeCount(likeCount + 1);
+    setIsLiked(true);
+
+    // Call backend API to increment like count
+    // Replace `YOUR_API_ENDPOINT` with your actual API endpoint
+    fetch(`/api/dreams/${dreamId}/like`, {
+      method: 'PUT',
+      headers: {
+      'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+      // Handle API response if needed
+      })
+      .catch(error => {
+      // Handle error if needed
+      });
+    };
+
+
   return (
     <div className='h-full w-full'>
       <div id='main' className="bg-gray-700 text-white m-1 rounded-md">
@@ -33,9 +64,10 @@ export default function DreamDetails({title, likes,content}: DreamDetailsProps, 
 
     <div id="header" className="flex flex-row justify-between border border-green-200 border-opacity-30 rounded-lg p-1 animate-bounce transition ">
       <div id="date" className="text-white text-sm font-bold">{new Date().toLocaleDateString()}</div>
-      <p>✨..................................🪻🌷💐🌺🌹🌹.............................✨</p>
+      <p>✨...............................🪻🌷💐🌺🌹.............................✨</p>
       <div id="time" className="text-white text-sm font-bold">{new Date().toLocaleTimeString()}</div>
     </div>
+
 
     <div className="h-[550px] w-full border border-blue-600 border-opacity-500 rounded-lg p-1 my-2">
     <div id="title" className="text-gray-200 text-center border border-transparent border-b-green-400 border-opacity-50 w-full p-1"><h1>{title}  ... 🦄🌃</h1></div>
@@ -45,13 +77,17 @@ export default function DreamDetails({title, likes,content}: DreamDetailsProps, 
     </div>
 
 
+
     <div id="reactions" className="flex flex-row justify-evenly p-3 border border-blue-400 rounded-lg">
-      <div title='like' id="likes" className="flex flex-row gap-2 ">
-      <p className="text-sm font-bold ">{likes}</p>
-      <div className="text-white hover:text-red-700 size-1 hover:scale-110">
-        <svg xmlns="http://www.w3.org/2000/svg" width="23" height={"23"} viewBox="0 0 22</div> 22" fill="currentColor" stroke="text-black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z "/></svg>
-    </div>
-        </div>
+    <div title='like' id="likes" className="flex flex-row gap-2 ">
+              <p id='likecount' className="text-sm font-bold ">{likeCount}</p>
+              <div className="text-red-500 hover:text-red-900 size-1 hover:scale-110" onClick={handleLike}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="23" height={"23"} viewBox="0 0 22 22" fill="currentColor" stroke="text-black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-heart">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </div>
+            </div>
+
 
     <div title='React specifically' className="flex flex-row gap-2 font-bold text-green-400 w-auto">
       <button className='bg-gray-500 px-2 rounded-md hover:scale-110'>{R1}</button>
@@ -68,7 +104,6 @@ export default function DreamDetails({title, likes,content}: DreamDetailsProps, 
     </div>
   </div>
 </div>
-
     </div>
   )
 }

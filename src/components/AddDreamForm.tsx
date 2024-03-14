@@ -1,25 +1,4 @@
 import React, { useState } from 'react';
-// import { CalendarIcon } from "@radix-ui/react-icons"
-// import { format } from "date-fns"
- 
-// import { cn } from "@/lib/utils"
-// import { Button } from "@/components/ui/button"
-// import { Calendar } from "@/components/ui/calendar"
-// import {
-//     Popover,
-//     PopoverContent,
-// } from "radix-ui/react-popover"
-
-// import { PopoverTrigger } from "@chakra-ui/react";
- 
-
-interface AddDreamFormProps {
-        cat1: string;
-        cat2: string;
-        cat3: string;
-        cat4: string;
-        cat5: string;
-}
 
 export default function AddDreamForm() {
     const [title, setTitle] = useState('');
@@ -103,12 +82,12 @@ export default function AddDreamForm() {
                             onChange={(event) => setSelectedCategory(event.target.value)}
                         >
                             <option className='bg-gray-600' value="">Select the concept ...💤</option>
-                            <option className='bg-gray-600' value="cat1">Adventure 🚵‍♂️</option>
-                            <option className='bg-gray-600' value="cat2">Fantacy 🦄</option>
-                            <option className='bg-gray-600' value="cat3">Sci-Fi 🔬</option>
-                            <option className='bg-gray-600' value="cat4">Romance 🌌</option>
-                            <option className='bg-gray-600' value="cat5">Horror 😱</option>
-                            <option className='bg-gray-600' value="cat6">Mystry 🔮</option>
+                            <option className='bg-gray-600' value="Adventure 🚵‍♂️">Adventure 🚵‍♂️</option>
+                            <option className='bg-gray-600' value="Fantacy 🦄">Fantacy 🦄</option>
+                            <option className='bg-gray-600' value="Sci-Fi 🔬">Sci-Fi 🔬</option>
+                            <option className='bg-gray-600' value="Romance 🌌">Romance 🌌</option>
+                            <option className='bg-gray-600' value="Horror 😱">Horror 😱</option>
+                            <option className='bg-gray-600' value="Mystry 🔮">Mystry 🔮</option>
                         </select>
                     </div>
                     {/* Rest of the code */}

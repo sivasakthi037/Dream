@@ -40,7 +40,7 @@ export default function DreamList() {
   }, []);
   // Render the dreams
   return (
-    <div>
+    <div >
       {dreams.map((dream) => (
         <Link to={`/dreams/${dream.id}`}>
           <DreamCard

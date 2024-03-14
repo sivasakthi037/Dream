@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface FilterBarProps {
   name1: string;
@@ -33,12 +34,16 @@ export default function FilterBar() {
 
   return (
     <div className='my-2'>
+      <Link to='/*'>
       <button className="bg-blue-800 text-white px-4 rounded-md font-bold pb-1 hover:text-gray-800 hover:bg-gray-400 m-2">
         {filterData.name1}
       </button>
+      </Link>
+      <Link to='/*'>
       <button className="bg-blue-800 text-white px-4 rounded-md font-bold pb-1 hover:text-gray-800 hover:bg-gray-400 m-2">
         {filterData.name2}
       </button>
+      </Link>
       <button className="bg-blue-800 text-white px-4 rounded-md font-bold pb-1 hover:text-gray-800 hover:bg-gray-400 m-2">
         {filterData.name3}
       </button>
