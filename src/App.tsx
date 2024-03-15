@@ -13,7 +13,7 @@ export default function App() {
           <Route path='/dreams/:dreamId' element={<DreamDetails2/>}></Route>
           <Route path="/statics" element ={<DreamStats/>}/>
           <Route path="/add" element={<AddDreamForm/>}/>
-          <Route path="*" element={<h1 className='font-mono'><br/>We are currently working on improving on this very basic model, ANONYMOUS is our moto... 🧑‍💻, there are going to be many , please wait a for a surprising launch...😉</h1>}/>
+          <Route path="*" element={<h1 className='font-mono'><br/>We are currently working on improving on this very basic model, ANONYMOUS is our moto... 🧑‍💻, there are going to be many , please wait for a surprising launch...😉</h1>}/>
         </Routes>
       </BrowserRouter>
     </div>

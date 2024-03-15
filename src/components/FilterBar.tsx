@@ -20,7 +20,6 @@ export default function FilterBar() {
 
   useEffect(() => {
     // Make an HTTP request to the API endpoint to fetch the data
-    // Replace 'apiEndpoint' with the actual API endpoint URL
     fetch('apiEndpoint')
       .then((response) => response.json())
       .then((data) => {

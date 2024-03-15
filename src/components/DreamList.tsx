@@ -1,7 +1,6 @@
 import React from 'react'
 import DreamCard from './DreamCard';
 import { Link } from 'react-router-dom';
-// Interface for dream data (assuming you have a structure for dream objects)
 
 // CREATE TABLE dreams (
 //   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -40,7 +39,7 @@ export default function DreamList() {
   }, []);
   // Render the dreams
   return (
-    <div >
+    <div className='sm:p-0 sm:m-0'>
       {dreams.map((dream) => (
         <Link to={`/dreams/${dream.id}`}>
           <DreamCard

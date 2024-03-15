@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-export default function App() { // Renamed to App for clarity
+export default function App() {
   return (
-    <div className='relative'>
+    <div className='relative sm:p-0 sm:m-0'>
         <div className='bg-gray-600 h-16 items-center flex flex-row justify-center border border-green-400 border-opacity-40 rounded-md'>
           <button title='Statics' id="statics" className='size-10 absolute left-7 hover:scale-110 text-blue-200 border border-green-400 border-opacity-40 rounded-full p-1 hover:bg-gray-500 '>
             <Link to="/statics">

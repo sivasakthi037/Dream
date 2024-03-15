@@ -12,13 +12,13 @@ export default function App() {
   }, 3000);
 
   return (
-    <div className='bg-gray-400 p-4 rounded-lg'>
+    <div className='bg-gray-400 p-4 rounded-lg sm:p-0 sm:m-0'>
       <div className='bg-gray-700 w-full h-full p-1 rounded-lg'>
         <div>
           <DreamHeader />
         </div>
         <FilterBar />
-        {isLoading ? <p className='text-white font-bold py-10'>Loading... PLease hang on a while, this a bit slow 😅</p> : <DreamList />}
+        {isLoading ? <p className='text-white font-bold py-10'>Loading... Please hang on, a bit slow 😅</p> : <DreamList />}
       </div>
     </div>
   );

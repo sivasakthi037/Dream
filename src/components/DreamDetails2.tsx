@@ -15,7 +15,7 @@ export default function DreamDetails2() {
   const { dreamId } = useParams(); // Get dream ID from URL params
   const [dream, setDream] = useState<Dream>();
   
- // Fetch dream details based on ID (replace with your actual API call)
+ // Fetch dream details based on ID
  React.useEffect(() => {
   fetch(`https://dreams.sivasakthi-n2022cse.workers.dev/dreams/${dreamId}`)
     .then((res) => res.json())

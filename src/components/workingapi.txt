@@ -10,7 +10,6 @@
 
 
 // for the particular id
- // Fetch dream details based on ID (replace with your actual API call)
   React.useEffect(() => {
     fetch(`/api/dreams/${dreamId}`)
       .then((res) => res.json())
@@ -47,17 +46,6 @@
       )}
 
 
-// intereface for single
-
-interface Dream {
-  id: number;
-  Title: string;
-  content: string;
-  timestamp: string;
-  likes: number;
-  // ... other dream properties
-}
-
 
 const { dreamId } = useParams(); // Get dream ID from URL params
   console.log(dreamId)
@@ -66,7 +54,6 @@ const { dreamId } = useParams(); // Get dream ID from URL params
     <div className="">
       <h2>Dream List</h2>
       <div className='bg-gray-300'>
-    {/* //print the dreams from the API in text format */}
         {dreams.map((dream) => (
           <div key={dream.content_id}>
             <h3>{dream.title}</h3>
@@ -84,7 +71,6 @@ const { dreamId } = useParams(); // Get dream ID from URL params
 
 //card
 
-
  {dreams.map((dream) => (
           <DreamCard
             key={dream.id}
@@ -95,7 +81,6 @@ const { dreamId } = useParams(); // Get dream ID from URL params
         ))}
 
 
-        // Interface for dream data (assuming you have a structure for dream objects)
 interface Dream {
   topic_id: string;
   content_id: number;
